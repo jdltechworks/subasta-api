@@ -1,12 +1,24 @@
 {
-  "name": "openshift-cartridge-nodejs-template",
-  "version": "1.0.1",
-  "description": "Custom Node.js cartridge for OpenShift - sample application",
+  "name": "_subasta",
   "private": true,
-  "main": "start.js",
-  "scripts": {
-    "start": "node --use_strict start.js"
+  "version": "0.0.0",
+  "description": "a Sails application",
+  "keywords": [],
+  "dependencies": {
+    "include-all": "~0.1.6",
+    "rc": "1.0.1",
+    "sails": "~0.12.3",
+    "sails-disk": "~0.10.9"
   },
-  "author": "Ionut-Cristian Florescu <ionut.florescu@gmail.com>",
-  "license": "ISC"
+  "scripts": {
+    "debug": "node debug app.js",
+    "start": "node app.js"
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/anonymous node/sails user/_subasta.git"
+  },
+  "author": "anonymous node/sails user",
+  "license": ""
 }

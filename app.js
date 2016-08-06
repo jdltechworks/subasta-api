@@ -1,43 +1,59 @@
-const http         = require('http'),
-      fs           = require('fs'),
-      path         = require('path'),
-      contentTypes = require('./utils/content-types'),
-      sysInfo      = require('./utils/sys-info'),
-      env          = process.env;
+/**
+ * app.js
+ *
+ * Use `app.js` to run your app without `sails lift`.
+ * To start the server, run: `node app.js`.
+ *
+ * This is handy in situations where the sails CLI is not relevant or useful.
+ *
+ * For example:
+ *   => `node app.js`
+ *   => `forever start app.js`
+ *   => `node debug app.js`
+ *   => `modulus deploy`
+ *   => `heroku scale`
+ *
+ *
+ * The same command-line arguments are supported, e.g.:
+ * `node app.js --silent --port=80 --prod`
+ */
 
-let server = http.createServer(function (req, res) {
-  let url = req.url;
-  if (url == '/') {
-    url += 'index.html';
+// Ensure we're in the project directory, so relative paths work as expected
+// no matter where we actually lift from.
+process.chdir(__dirname);
+
+// Ensure a "sails" can be located:
+(function() {
+  var sails;
+  try {
+    sails = require('sails');
+  } catch (e) {
+    console.error('To run an app using `node app.js`, you usually need to have a version of `sails` installed in the same directory as your app.');
+    console.error('To do that, run `npm install sails`');
+    console.error('');
+    console.error('Alternatively, if you have sails installed globally (i.e. you did `npm install -g sails`), you can use `sails lift`.');
+    console.error('When you run `sails lift`, your app will still use a local `./node_modules/sails` dependency if it exists,');
+    console.error('but if it doesn\'t, the app will run with the global sails instead!');
+    return;
   }
 
-  // IMPORTANT: Your application HAS to respond to GET /health with status 200
-  //            for OpenShift health monitoring
-
-  if (url == '/health') {
-    res.writeHead(200);
-    res.end();
-  } else if (url == '/info/gen' || url == '/info/poll') {
-    res.setHeader('Content-Type', 'application/json');
-    res.setHeader('Cache-Control', 'no-cache, no-store');
-    res.end(JSON.stringify(sysInfo[url.slice(6)]()));
-  } else {
-    fs.readFile('./static' + url, function (err, data) {
-      if (err) {
-        res.writeHead(404);
-        res.end('Not found');
-      } else {
-        let ext = path.extname(url).slice(1);
-        res.setHeader('Content-Type', contentTypes[ext]);
-        if (ext === 'html') {
-          res.setHeader('Cache-Control', 'no-cache, no-store');
-        }
-        res.end(data);
-      }
-    });
+  // Try to get `rc` dependency
+  var rc;
+  try {
+    rc = require('rc');
+  } catch (e0) {
+    try {
+      rc = require('sails/node_modules/rc');
+    } catch (e1) {
+      console.error('Could not find dependency: `rc`.');
+      console.error('Your `.sailsrc` file(s) will be ignored.');
+      console.error('To resolve this, run:');
+      console.error('npm install rc --save');
+      rc = function () { return {}; };
+    }
   }
-});
 
-server.listen(env.NODE_PORT || 3000, env.NODE_IP || 'localhost', function () {
-  console.log(`Application worker ${process.pid} started...`);
-});
+
+  // Start server
+  sails.lift(rc('sails'));
+})();
