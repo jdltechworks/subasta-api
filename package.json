@@ -16,7 +16,7 @@
   },
   "scripts": {
     "debug": "node debug app.js",
-    "start": "node app.js",
+    "start": "node app.js --harmony",
     "generate-docs": "./node_modules/.bin/jsdoc -c jsdoc.json"
   },
   "main": "app.js",
