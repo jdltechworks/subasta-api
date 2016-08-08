@@ -5,15 +5,32 @@
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
+    "grunt": "0.4.5",
+    "grunt-contrib-clean": "0.6.0",
+    "grunt-contrib-coffee": "0.13.0",
+    "grunt-contrib-concat": "0.5.1",
+    "grunt-contrib-copy": "0.5.0",
+    "grunt-contrib-cssmin": "0.9.0",
+    "grunt-contrib-jst": "0.6.0",
+    "grunt-contrib-less": "1.1.0",
+    "grunt-contrib-uglify": "0.7.0",
+    "grunt-contrib-watch": "0.5.3",
+    "grunt-sails-linker": "~0.10.1",
+    "grunt-sync": "0.2.4",
     "connect-mongo": "^1.3.2",
+    "ejs": "^2.5.1",
     "include-all": "~0.1.6",
     "rc": "1.0.1",
     "sails": "~0.12.3",
-    "sails-disk": "~0.10.9"
+    "sails-disk": "~0.10.9",
+    "sails-hook-babel": "^6.0.1",
+    "docdash": "^0.4.0",
+    "jsdoc": "^3.4.0"
   },
   "scripts": {
     "debug": "node debug app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "generate-docs": "./node_modules/.bin/jsdoc -c jsdoc.json"
   },
   "main": "app.js",
   "repository": {
@@ -21,5 +38,8 @@
     "url": "git://github.com/anonymous node/sails user/_subasta.git"
   },
   "author": "anonymous node/sails user",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.13.2"
+  }
 }
