@@ -1,6 +1,6 @@
 {
-  "generators": {
-    "modules": {}
+  "path": {
+  	"public": "assets"
   },
   "hooks": {
     "grunt": false
