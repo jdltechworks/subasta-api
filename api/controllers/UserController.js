@@ -9,6 +9,7 @@ module.exports = {
 	create: function(req, res, next) {
 		User.create(req.body).then(function(response){
 			res.json({email: response.email});
+			emailService.sendVerification(response);
 		}).catch(function(error) {
 			res.json(error);
 		});
