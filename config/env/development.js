@@ -22,8 +22,7 @@ module.exports = {
   connections: {
 		localMongodbServer: {
 	  	adapter: 'sails-mongo',
-	  	url: 'mongodb://127.0.0.1:27017/app',
-	  	database: 'substa'
+	  	url: 'mongodb://127.0.0.1:27017/subasta'
 	  }
   },
   models: {

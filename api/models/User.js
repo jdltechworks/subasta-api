@@ -21,11 +21,25 @@ module.exports = {
   		type: 'string',
   		required: true
   	},
+    phone: {
+      type: 'string',
+      defaultsTo: '111-222-333'
+    },
+    address: {
+      type: 'string',
+      defaultsTo: 'Not specified'
+    },
+    //Add reference to user
+    auctions: {
+      collection: 'auction',
+      via: 'owner'
+    },
   	toJSON: function() {
   		var obj = this.toObject();
   		delete obj.password;
   		return obj;
   	}
   }
+  
 };
 

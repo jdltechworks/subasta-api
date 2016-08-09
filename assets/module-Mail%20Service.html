@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>:: Policy - Documentation</title>
+    <title>Mail Service - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">:: Policy</h1>
+    <h1 class="page-title">Mail Service</h1>
     
 
     
@@ -40,8 +40,6 @@
 <header>
     
         
-            
-        
     
 </header>
 
@@ -49,12 +47,34 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>:: Simple policy to allow any authenticated user
-                Assumes that your login action in one of your controllers sets <code>req.session.authenticated = true;</code></p></div>
+
         
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
 
         
             
+
+    
+
+    <h4 class="name" id=".sendVerification"><span class="type-signature">(static) </span>sendVerification<span class="signature">(options, done)</span><span class="type-signature"> &rarr; {object}</span></h4>
+
+    
 
 
 
@@ -64,7 +84,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api_policies_sessionAuth.js.html">api/policies/sessionAuth.js</a>, <a href="api_policies_sessionAuth.js.html#line1">line 1</a>
+        <a href="api_services_emailService.js.html">api/services/emailService.js</a>, <a href="api_services_emailService.js.html#line11">line 11</a>
     </li></ul></dd>
     
 
@@ -103,6 +123,90 @@
 
 
 
+<div class="description">
+    <p>Send verification email to newly signed up user</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>user sign up details</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>done</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>[description]</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -117,32 +221,31 @@
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>send mail to user</p>
+</div>
 
 
 
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
 
 
+    </dd>
+</dl>
 
-
-
+    
 
 
         
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
     
 
     
