@@ -32,7 +32,7 @@ module.exports = {
   },
   models: {
      connection: 'productionMongodbServer',
-     migrate: 'alter'
+     migrate: 'drop'
   },
   session: {
    /***************************************************************************
