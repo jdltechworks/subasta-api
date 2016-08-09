@@ -27,7 +27,7 @@ module.exports = {
     productionMongodbServer: {
       adapter: 'sails-mongo',
       url: process.env.MONGODB_URL,
-      database: 'jdl-app'
+      database: 'subasta'
     }
   },
   models: {
