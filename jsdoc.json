@@ -19,7 +19,7 @@
     "verbose": true
   },
   "docdash": {
-      "static": true,  
+      "static": true,
       "sort": true
   }
 }
