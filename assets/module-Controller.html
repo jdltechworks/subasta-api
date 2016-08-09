@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>:: Policy - Documentation</title>
+    <title>Controller - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">:: Policy</h1>
+    <h1 class="page-title">Controller</h1>
     
 
     
@@ -40,8 +40,6 @@
 <header>
     
         
-            
-        
     
 </header>
 
@@ -49,12 +47,34 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>:: Simple policy to allow any authenticated user
-                Assumes that your login action in one of your controllers sets <code>req.session.authenticated = true;</code></p></div>
+
         
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
 
         
             
+
+    
+
+    <h4 class="name" id=".create"><span class="type-signature">(static) </span>create<span class="signature">(req, res, next)</span><span class="type-signature"></span></h4>
+
+    
 
 
 
@@ -64,7 +84,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api_policies_sessionAuth.js.html">api/policies/sessionAuth.js</a>, <a href="api_policies_sessionAuth.js.html#line1">line 1</a>
+        <a href="api_controllers_UserController.js.html">api/controllers/UserController.js</a>, <a href="api_controllers_UserController.js.html#line12">line 12</a>
     </li></ul></dd>
     
 
@@ -103,6 +123,9 @@
 
 
 
+<div class="description">
+    <p>Overridden User create</p>
+</div>
 
 
 
@@ -111,6 +134,102 @@
 
 
 
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>req</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Requested objects from the client side</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>res</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Response to be sent to the client</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>next</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Call back</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -128,21 +247,6 @@
 
 
         
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
     
 
     
