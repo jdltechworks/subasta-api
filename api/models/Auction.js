@@ -41,12 +41,19 @@ module.exports = {
   	tags: {
   		type: 'array'
   	},
+    slug: {
+      type: 'string',
+    },
   	owner: {
   		model: 'user'
   	},
     comment: {
       collection: 'comment',
-      via: 'owner'
-    }
+      via: 'toAuction'
+    },
+  },
+  beforeCreate: function(values, cb) {
+    values.slug = _.kebabCase(values.title);
+    cb();
   }
 };

@@ -34,6 +34,10 @@ module.exports = {
       collection: 'auction',
       via: 'owner'
     },
+    comments: {
+      collection: 'comment',
+      via: 'owner'
+    },
   	toJSON: function() {
   		var obj = this.toObject();
   		delete obj.password;

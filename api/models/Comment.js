@@ -13,6 +13,9 @@ module.exports = {
   		required: 'true'
   	},
    	owner: {
+  		model: 'user'
+  	},
+  	toAuction: {
   		model: 'auction'
   	}
   }
