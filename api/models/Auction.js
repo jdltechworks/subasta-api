@@ -31,11 +31,22 @@ module.exports = {
   	endDate: {
   		type: 'datetime'
   	},
+    likes: {
+      type: 'integer',
+      defaultsTo: 0 
+    },
+    minBid: {
+      type: 'float'
+    },
   	tags: {
   		type: 'array'
   	},
   	owner: {
   		model: 'user'
-  	}
+  	},
+    comment: {
+      collection: 'comment',
+      via: 'owner'
+    }
   }
 };
