@@ -16,7 +16,8 @@ module.exports = {
   		required: true
   	},
   	image: {
-  		type: 'array'
+  		type: 'string',
+      defaultsTo: 'http://dummyimage.com/640x4:3'
   	},
   	verified: {
   		type: 'boolean'
