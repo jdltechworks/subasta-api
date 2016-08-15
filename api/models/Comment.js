@@ -12,13 +12,9 @@ module.exports = {
   		type: 'text',
   		required: 'true'
   	},
-   	owner: {
-  		model: 'user'
-  	},
-  	toAuction: {
+  	a_id: {
   		model: 'auction'
   	}
   }
 
 };
-

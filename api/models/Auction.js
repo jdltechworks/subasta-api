@@ -12,8 +12,7 @@ module.exports = {
   		unique: true
   	},
   	description: {
-  		type: 'text',
-  		required: true
+  		type: 'text'
   	},
   	image: {
   		type: 'string',
@@ -50,7 +49,7 @@ module.exports = {
   	},
     comment: {
       collection: 'comment',
-      via: 'toAuction'
+      via: 'a_id'
     },
   },
   beforeCreate: function(values, cb) {
