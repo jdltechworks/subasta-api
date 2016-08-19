@@ -10,29 +10,27 @@ module.exports = {
   attributes: {
   	username: {
   		type: 'string',
-  		required: true
+  		required: true,
+      lowercase: true
   	},
   	email: {
   		type: 'string',
   		unique: true,
-  		required: true
+  		required: true,
+      email: true
   	},
   	password: {
   		type: 'string',
   		required: true
   	},
-    phone: {
-      type: 'string',
-      defaultsTo: '111-222-333'
-    },
-    address: {
-      type: 'string',
-      defaultsTo: 'Not specified'
-    },
-    //Add reference to user
+    //Add references to user
     auctions: {
       collection: 'auction',
-      via: 'owner'
+      via: 'u_id'
+    },
+    profile: {
+      collection: 'profile',
+      via: 'u_id'
     },
   	toJSON: function() {
   		var obj = this.toObject();

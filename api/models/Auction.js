@@ -14,10 +14,6 @@ module.exports = {
   	description: {
   		type: 'text'
   	},
-  	image: {
-  		type: 'string',
-      defaultsTo: 'http://dummyimage.com/640x4:3'
-  	},
   	verified: {
   		type: 'boolean'
   	},
@@ -41,16 +37,17 @@ module.exports = {
   	tags: {
   		type: 'array'
   	},
-    slug: {
-      type: 'string',
-    },
-  	owner: {
+  	u_id: {
   		model: 'user'
   	},
-    comment: {
-      collection: 'comment',
+    comments: {
+      colletion: 'comment',
       via: 'a_id'
     },
+    images: {
+      collection: 'upload',
+      via: 'a_id'
+    }
   },
   beforeCreate: function(values, cb) {
     values.slug = _.kebabCase(values.title);
