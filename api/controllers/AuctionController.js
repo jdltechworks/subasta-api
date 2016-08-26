@@ -9,16 +9,12 @@ var path = require('path');
 
 module.exports = {
 	create: function(req, res, next) {
-		if(req.file('image')) {
-			req.file('image').upload({
-				dirname: process.cwd() + '/assets/upload'
-			}, (err, uploadedFiles) => {
-				if(err) res.serverError(err);
-
-				res.json({
-					files: uploadedFiles
+		Auction.create(req.body).then((json) => {
+			var images = req.body.images.split(',');
+			for(var i in images) {
+				Upload.create({a_id: json.id, file: images[i]}).then((response) => {
 				});
-			});
-		}
+			}
+		});
 	}
 };
