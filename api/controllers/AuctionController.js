@@ -12,7 +12,10 @@ module.exports = {
 		Auction.create(req.body).then((json) => {
 			var images = req.body.images.split(',');
 			for(var i in images) {
-				Upload.create({a_id: json.id, file: images[i]}).then((response) => {
+				Upload.create({ 
+          a_id: json.id, 
+          file: images[i]
+        }).then((response) => {
 				});
 			}
 		});

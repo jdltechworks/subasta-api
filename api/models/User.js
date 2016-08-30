@@ -6,23 +6,22 @@
  */
 
 module.exports = {
-
   attributes: {
-  	username: {
-  		type: 'string',
-  		required: true,
+    username: {
+      type: 'string',
+      required: true,
       lowercase: true
-  	},
-  	email: {
-  		type: 'string',
-  		unique: true,
-  		required: true,
+    },
+    email: {
+      type: 'string',
+      unique: true,
+      required: true,
       email: true
-  	},
-  	password: {
-  		type: 'string',
-  		required: true
-  	},
+    },
+    password: {
+      type: 'string',
+      required: true
+    },
     //Add references to user
     auctions: {
       collection: 'auction',
@@ -32,12 +31,10 @@ module.exports = {
       collection: 'profile',
       via: 'u_id'
     },
-  	toJSON: function() {
-  		var obj = this.toObject();
-  		delete obj.password;
-  		return obj;
-  	}
+    toJSON: function() {
+      var obj = this.toObject();
+      delete obj.password;
+      return obj;
+    }
   }
-  
 };
-
