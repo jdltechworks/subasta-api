@@ -8,10 +8,12 @@
     "bcrypt-nodejs": "0.0.3",
     "connect-mongo": "^1.3.2",
     "docdash": "^0.4.0",
-    "ejs": "^2.5.1",
+    "hogan.js": "^3.0.2",
     "include-all": "~0.1.6",
     "jsdoc": "^3.4.0",
     "jsonwebtoken": "^7.1.9",
+    "nodemailer": "^2.5.0",
+    "nodemailer-sendgrid-transport": "^0.2.0",
     "passport": "^0.3.2",
     "passport-jwt": "^2.1.0",
     "passport-local": "^1.0.0",
@@ -22,6 +24,7 @@
     "sails-mongo": "^0.12.1"
   },
   "scripts": {
+    "preinstall": "npm install -g sails",
     "debug": "node debug app.js",
     "start": "node app.js --harmony",
     "generate-docs": "./node_modules/.bin/jsdoc -c jsdoc.json"

@@ -27,8 +27,16 @@ module.exports = {
       collection: 'auction',
       via: 'u_id'
     },
+    activated: {
+      type: 'boolean',
+      defaultsTo: false
+    },
     profile: {
       collection: 'profile',
+      via: 'u_id'
+    },
+    comment: {
+      collection: 'comment',
       via: 'u_id'
     },
     toJSON: function() {
@@ -36,5 +44,20 @@ module.exports = {
       delete obj.password;
       return obj;
     }
+  },
+  beforeCreate: function(values, next) {
+    
+    values.password = CipherService.encryptPassword(values.password); 
+    
+    next();
+  },
+  afterCreate: function(values, next) {
+    
+    var email = values.email;
+    
+    EmailService.sendVerification(email);
+    
+    next();
+  
   }
 };
