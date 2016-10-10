@@ -17,6 +17,13 @@ module.exports = {
   	},
   	a_id: {
   		model: 'auction'
-  	}
+  	},
+    toJSON: function() {
+      var uploads = sails.config.uploads;
+      var obj = this.toObject();
+      obj.file = `${uploads}/${obj.file}`;
+      console.log(obj.file);
+      return obj;
+    }
   }
 };

@@ -35,5 +35,8 @@
     "url": "git://github.com/anonymous node/sails user/_subasta.git"
   },
   "author": "anonymous node/sails user",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "ejs": "^2.5.2"
+  }
 }

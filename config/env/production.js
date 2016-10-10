@@ -14,6 +14,7 @@ module.exports = {
 
   host: process.env.OPENSHIFT_NODEJS_IP,
   port: process.env.OPENSHIFT_NODEJS_PORT,
+  uploads: process.env.OPENSHIFT_APP_DNS + '/upload',
 
 
   // Show server errors

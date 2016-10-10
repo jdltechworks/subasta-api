@@ -14,7 +14,7 @@ module.exports = {
 
   host: 'localhost',
   port: 8000,
-  publicFiles: '//localhost:8000/assets/upload',
+  uploads: '//localhost:8000/upload',
 
   /***************************************************************************
    * Set the default database connection for models in the development       *
