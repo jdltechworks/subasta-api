@@ -12,15 +12,14 @@ module.exports = {
 				dirname: process.cwd() + '/assets/upload'
 			}, (err, uploadedFiles) => {
 				if(err) res.serverError(err);
-				
-				var fileNames = [];
-				console.log(req.get('host'));
+				var host = sails.config.uploads;
 				for( var key in uploadedFiles) {
 					let upload = uploadedFiles[key].fd.replace(/\\/g,"/");
-					fileNames.push(upload.split('/').reverse()[0]);
+					fileName = upload.split('/').reverse()[0];
 				}
 				res.json({
-					fileNames
+					fileName,
+					host
 				});
 			});
 		}

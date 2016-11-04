@@ -16,12 +16,12 @@ module.exports = {
 	 * @param  {Function} done    [description]
 	 * @return {object}           send mail to user
 	 */
-	sendVerification: function(email, next) {
+	sendUserVerification: function(email, token) {
 		var mailElements = {
 			to: email,
 			from: 'no-reply@subasta.com',
 			subject: 'no-subject',
-			html: '<h2>Hello world</h2>'
+			html: `<h1>Your token ${token}<h1>`
 		}
 
 		mailer.sendMail(mailElements, function(err, response) {

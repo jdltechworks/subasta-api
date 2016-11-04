@@ -5,7 +5,6 @@
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
-var path = require('path');
 module.exports = {
 
   attributes: {
@@ -15,14 +14,13 @@ module.exports = {
   	u_id: {
   		model: 'user'
   	},
-  	a_id: {
-  		model: 'auction'
+  	p_id: {
+  		model: 'product'
   	},
     toJSON: function() {
       var uploads = sails.config.uploads;
       var obj = this.toObject();
       obj.file = `${uploads}/${obj.file}`;
-      console.log(obj.file);
       return obj;
     }
   }

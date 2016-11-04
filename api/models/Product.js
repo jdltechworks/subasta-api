@@ -1,56 +1,57 @@
 /**
- * @module  Auction.js
+ * @module  Product.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 module.exports = {
   attributes: {
-  	title: {
+  	name: {
   		type: 'string',
   		required: true,
   		unique: true
   	},
+    quantity: {
+      type: 'integer',
+      defaultsTo: 0
+    },
   	description: {
   		type: 'text'
   	},
   	verified: {
-  		type: 'boolean'
-  	},
-  	sold: {
   		type: 'boolean',
-  		defaultsTo: false
-  	},
-  	startDate: {
-  		type: 'datetime'
-  	},
-  	endDate: {
-  		type: 'datetime'
+      defaultsTo: false
   	},
     likes: {
       type: 'integer',
       defaultsTo: 0 
     },
-    minBid: {
-      type: 'float'
-    },
-  	tags: {
-  		type: 'array'
-  	},
   	u_id: {
   		model: 'user'
   	},
     comments: {
-      colletion: 'comment',
-      via: 'a_id'
+      collection: 'comment',
+      via: 'p_id'
     },
     images: {
       collection: 'upload',
-      via: 'a_id'
+      via: 'p_id'
+    },
+    price: {
+      type: 'float'
     }
   },
   beforeCreate: function(values, cb) {
-    values.slug = _.kebabCase(values.title);
+    values.slug = _.kebabCase(values.name);
+    cb();
+  },
+  afterCreate: function(values, cb) {
+    Product.find({
+      limit: 5,
+      sort: 'createdAt DESC'
+    }).exec(function(err, products) {
+      sails.sockets.broadcast('productFeeds', 'feeds', products);
+    });
     cb();
   }
 };

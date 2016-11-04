@@ -10,7 +10,19 @@ module.exports = {
   attributes: {
   	u_id: {
   		model: 'user'
-  	}
+  	},
+    organization: {
+      type: 'string'
+    },
+    address: {
+      type: 'string'
+    },
+    longitude: {
+      type: 'float'
+    },
+    latitude: {
+      type: 'float'
+    }
   }
 };
 

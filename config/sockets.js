@@ -38,7 +38,7 @@ module.exports.sockets = {
   * via port 6379                                                            *
   *                                                                          *
   ***************************************************************************/
-  // adapter: 'memory',
+  adapter: 'memory',
 
   //
   // -OR-
@@ -136,6 +136,6 @@ module.exports.sockets = {
   * transport should be disabled.                                            *
   *                                                                          *
   ***************************************************************************/
-  // transports: ["polling", "websocket"]
+  transports: ["polling", "websocket"]
 
 };

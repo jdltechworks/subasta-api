@@ -23,8 +23,8 @@ module.exports = {
       required: true
     },
     //Add references to user
-    auctions: {
-      collection: 'auction',
+    products: {
+      collection: 'product',
       via: 'u_id'
     },
     activated: {
@@ -54,8 +54,15 @@ module.exports = {
   afterCreate: function(values, next) {
     
     var email = values.email;
-    
-    EmailService.sendVerification(email);
+    var u_id = values.id;
+    CipherService
+      .generateActivationToken()
+      .then((token) => {
+        Token.create({u_id, token}).then((_res) => {
+          let token = _res.token;
+          EmailService.sendUserVerification(email, token);
+        });
+      });
     
     next();
   

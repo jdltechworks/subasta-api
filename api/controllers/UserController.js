@@ -6,4 +6,7 @@
  */
 
 module.exports = {
+  subscribe: function(req, res) {
+    User.watch(req);
+  }
 };
