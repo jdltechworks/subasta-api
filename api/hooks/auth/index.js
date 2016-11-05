@@ -6,13 +6,14 @@ module.exports = function(sails) {
       before:  {
         'POST /signup': function(req, res, next) {
           User.create(req.body).then((user) => {
+
             return {
               token: CipherService.createJwtToken(user),
               user: user
             };
           })
           .then(res.created)
-          .catch(res.serverError);
+          .catch((err) => res.json(err));
         },
         'POST /auth': function(req, res) {
           passport.authenticate('local', function(err, user, info) {
